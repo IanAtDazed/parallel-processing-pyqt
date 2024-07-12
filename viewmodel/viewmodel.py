@@ -4,17 +4,17 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from model.parallel_model import ParallelModel
+    from model.model import Model
 
 from PyQt6.QtCore import QObject, pyqtSignal
 
 from helpers.named_tuples import MessageSignal
-class ParallelViewModel(QObject):
-    """Parallel view model class."""
+class ViewModel(QObject):
+    """viewmodel class."""
 
     signal = pyqtSignal(tuple)
 
-    def __init__(self, model: ParallelModel) -> None:
+    def __init__(self, model: Model) -> None:
         
         super().__init__()
 
