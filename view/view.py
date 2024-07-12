@@ -2,16 +2,16 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from viewmodel.parallel_view_model import ParallelViewModel
+    from viewmodel.viewmodel import Model
 
 
 from PyQt6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QLabel, QPushButton
 
 from helpers.named_tuples import MessageSignal
-class ParallelView(QMainWindow):
+class View(QMainWindow):
     """A single window application to demonstrate parallel processing with PyQt6."""
 
-    def __init__(self, viewmodel: ParallelViewModel) -> None:
+    def __init__(self, viewmodel: Model) -> None:
         """MainWindow constructor."""
         super().__init__()
 
