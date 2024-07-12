@@ -15,7 +15,8 @@ class ParallelViewModel(QObject):
     signal = pyqtSignal(tuple)
 
     def __init__(self, model: ParallelModel) -> None:
-        pass
+        
+        super().__init__()
 
     def start_button_clicked(self):
         """Start button clicked slot."""
