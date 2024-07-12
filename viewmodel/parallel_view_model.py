@@ -6,9 +6,13 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from model.parallel_model import ParallelModel
 
+from PyQt6.QtCore import QObject, pyqtSignal
 
-class ParallelViewModel:
+from helpers.named_tuples import MessageSignal
+class ParallelViewModel(QObject):
     """Parallel view model class."""
+
+    signal = pyqtSignal(tuple)
 
     def __init__(self, model: ParallelModel) -> None:
         pass
@@ -18,11 +22,15 @@ class ParallelViewModel:
 
         # TODO: Make checkable
 
+        # TODO: TEMP
         print('Start button clicked')
+        self.signal.emit(MessageSignal(value='Start button clicked'))
 
     def stop_button_clicked(self):
         """Stop button clicked slot."""
 
         # TODO: Make checkable
 
+        # TODO: TEMP
         print('Stop button clicked')
+        self.signal.emit(MessageSignal(value='Stop button clicked'))
