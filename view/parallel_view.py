@@ -7,6 +7,7 @@ if TYPE_CHECKING:
 
 from PyQt6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QLabel, QPushButton
 
+
 class ParallelView(QMainWindow):
     """A single window application to demonstrate parallel processing with PyQt6."""
 
@@ -35,10 +36,9 @@ class ParallelView(QMainWindow):
         widget.setLayout(outer_layout)
 
         self.setCentralWidget(widget)
-    
+
     def _connect_signals_to_slots(self) -> None:
         """Connect signals to slots."""
 
         self.start_button.clicked.connect(self._viewmodel.start_button_clicked)
         self.stop_button.clicked.connect(self._viewmodel.stop_button_clicked)
-
