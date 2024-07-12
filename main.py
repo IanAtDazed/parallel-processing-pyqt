@@ -5,14 +5,14 @@ Fires up the *ParallelView* *QMainWindow*
 
 from PyQt6.QtWidgets import QApplication
 
-from model.parallel_model import ParallelModel
-from viewmodel.parallel_view_model import ParallelViewModel
-from view.parallel_view import ParallelView
+from model.model import Model
+from viewmodel.viewmodel import ViewModel
+from view.view import View
 
 if __name__ == '__main__':
     app = QApplication([])
-    model = ParallelModel()
-    viewmodel = ParallelViewModel(model)
-    view = ParallelView(viewmodel)
+    model = Model()
+    viewmodel = ViewModel(model)
+    view = View(viewmodel)
     view.show()
     app.exec()
