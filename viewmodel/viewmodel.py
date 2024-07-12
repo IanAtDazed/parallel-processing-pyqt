@@ -18,6 +18,8 @@ class ViewModel(QObject):
         
         super().__init__()
 
+        self._model = model
+
     def start_button_clicked(self):
         """Start button clicked slot."""
 
