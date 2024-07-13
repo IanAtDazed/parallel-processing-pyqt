@@ -5,6 +5,7 @@
 I created this concept application to _hopefully_ help others and to garner constructive feedback as to how it might be improved.
 
 ## The Problem
+1
 
 - PyQt applications have a main thread of execution: **the GUI thread**.
 - Typically, anything called directly from PyQt (object method calls, scripts, etc.) is run on the GUI thread.
