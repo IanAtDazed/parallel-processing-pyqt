@@ -1,6 +1,6 @@
 """main module for the application.
 
-Fires up the *ParallelView* *QMainWindow*
+Fires up the *View* *QMainWindow*
 """
 
 from PyQt6.QtWidgets import QApplication
