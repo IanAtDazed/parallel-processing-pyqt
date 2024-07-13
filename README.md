@@ -7,8 +7,9 @@ I created this concept application to *hopefully* help others and to garner cons
 - PyQt applications have a main thread of execution: **the GUI thread**.
 - Typically, anything called directly from PyQt (object method calls, scripts, etc.) is run on the GUI thread.
 - This results in everything running **synchronously**, one task at a time - which can be impractical for sophisticated applications.
-- PyQt does offer **multithreading**, which allows for subprograms to be run in thread(s) separate to the GUI thread.
-  - This can often be all that is required, and if that is all you need, this application can still help you with that! Simply adjust the *thread_worker* module so it no longer instantiates *ParallelSupervisor*.
+- PyQt does offer **multithreading**, which allows for subprograms to be run, in thread(s), separate to the GUI thread.
+  - This can often be all that is required, and if that is all you need, this application can still help you with that!
+  - Simply adjust the *thread_worker* module so it no longer instantiates *ParallelSupervisor*.
 - If **multiprocessing** is required, however, things get even more complicated.
   - multithreading and multiprocessing need to be combined.
 
