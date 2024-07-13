@@ -25,6 +25,5 @@ class Model:
         """Stop the model."""
 
         self._worker.quit()
-        # TODO: Need both?
         self._thread.quit()
         self._thread.wait()
