@@ -26,6 +26,13 @@ I created this concept application to _hopefully_ help others and to garner cons
 - Before you begin, I **strongly** suggest you take a look at the links in the [Reference Sources](#reference-sources) section.
   - These are where I got my inspiration from, and it makes it much easier to understand some of the design decisions.
 
+## Things to Consider
+- The multiprocessing that takes place in *this* application is nothing very useful, and wouldn't be worth the overhead. It simply generates numbers from 0..*.
+- If you are interested in adapting this to multiprocess with something a little more interesting, you could take a look at: [ray-streamer](https://github.com/IanAtDazed/ray-streamer) where we simulate streaming stock prices and processing them in parallel before returning them to something like this.
+
+## Feedback
+- If you have any constructive feedback as to how the process, code, or documentation might be improved, I would love to hear from you.
+
 ## Reference Sources
 
 - [Doing python multiprocessing The Right Way](https://medium.com/@sampsa.riikonen/doing-python-multiprocessing-the-right-way-a54c1880e300)
