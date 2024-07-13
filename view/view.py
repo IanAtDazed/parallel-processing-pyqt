@@ -26,11 +26,10 @@ class View(QMainWindow):
         outer_layout = QVBoxLayout()
 
         self.start_button = QPushButton('Start')
-        self.stop_button = QPushButton('Stop')
+        self.start_button.setCheckable(True)
         self.result_label = QLabel('N/a')
 
         outer_layout.addWidget(self.start_button)
-        outer_layout.addWidget(self.stop_button)
         outer_layout.addWidget(self.result_label)
 
         widget = QWidget()
@@ -42,7 +41,6 @@ class View(QMainWindow):
         """Connect signals to slots."""
 
         self.start_button.clicked.connect(self._viewmodel.start_button_clicked)
-        self.stop_button.clicked.connect(self._viewmodel.stop_button_clicked)
         self._viewmodel.signal.connect(self._process_signal)
 
     def _process_signal(self, signal: UpdateSignal) -> None:
