@@ -9,16 +9,17 @@ if TYPE_CHECKING:
 from PyQt6.QtCore import QObject, pyqtSignal
 
 from helpers.named_tuples import MessageSignal
+from model.model import Model
 class ViewModel(QObject):
     """viewmodel class."""
 
     signal = pyqtSignal(tuple)
 
-    def __init__(self, model: Model) -> None:
+    def __init__(self) -> None:
         
         super().__init__()
 
-        self._model = model
+        self._model = Model(self._callback_function)
 
     def start_button_clicked(self):
         """Start button clicked slot."""
@@ -41,3 +42,8 @@ class ViewModel(QObject):
         self.signal.emit(MessageSignal(value='Stop button clicked'))
 
         self._model.stop()
+    
+    def _callback_function(self, value: any) -> None:
+        """Callback function."""
+
+        print(f'Callback function: {value}')
