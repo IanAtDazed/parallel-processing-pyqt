@@ -15,7 +15,8 @@ class View(QMainWindow):
     """A single window application to demonstrate parallel processing with PyQt6."""
 
     def __init__(self) -> None:
-        """MainWindow constructor."""
+        """Initialize the class."""
+        
         super().__init__()
 
         self._viewmodel = ViewModel()
