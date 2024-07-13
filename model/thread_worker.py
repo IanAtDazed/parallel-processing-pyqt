@@ -9,12 +9,19 @@ from parallel.parallel_supervisor import ParallelSupervisor
 
 
 class ThreadWorker(QObject):
-    """Class to run the parallel processing."""
+    """Class to handle work on another thread
+
+    In this case, calling and communicating with *ParallelSupervisor*
+    which will run in its own process."""
 
     result = pyqtSignal(int)
 
     def __init__(self, callback_function: callable) -> None:
-        """Initialzie the class."""
+        """Initialzie the class.
+
+        Args:
+            callback_function: The function responsible for updating the view.
+        """
 
         super().__init__()
 
@@ -33,7 +40,13 @@ class ThreadWorker(QObject):
         self._process_data()
 
     def _start_parallel_supervisor(self) -> None:
-        """Run the parallel supervisor."""
+        """Run parallel supervisor.
+
+        **NOTE:** *ParallelSupervisor* is instantiated here,
+          rather than in the constructor, so that it happens
+          **after** this worker has been moved to the *QThread* in
+          *Model*.
+        """
 
         self._parallel_supervisor = ParallelSupervisor.remote(
             self._instruction_queue, self._result_queue)
@@ -49,7 +62,7 @@ class ThreadWorker(QObject):
             self.result.emit(latest_result)
 
     def quit(self) -> None:
-        """Quit the parallel processing."""
+        """Quit parallel processing."""
 
         self._instruction_queue.put(QuitProcessing())
         self._is_running = False
