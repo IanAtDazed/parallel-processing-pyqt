@@ -29,6 +29,8 @@ class ViewModel(QObject):
         print('Start button clicked')
         self.signal.emit(MessageSignal(value='Start button clicked'))
 
+        self._model.run()
+
     def stop_button_clicked(self):
         """Stop button clicked slot."""
 
@@ -37,3 +39,5 @@ class ViewModel(QObject):
         # TODO: TEMP
         print('Stop button clicked')
         self.signal.emit(MessageSignal(value='Stop button clicked'))
+
+        self._model.stop()
