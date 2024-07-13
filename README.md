@@ -31,7 +31,7 @@ I created this concept application to _hopefully_ help others and to garner cons
 - If you have any constructive feedback as to how the process, code, or documentation might be improved, I would love to hear from you.
 
 ## Reference Sources
-I **strongly** recommend you read, at least, the first two of these articles, and at least the 3rd, if you don't have knowledge of MVVM.
+I **strongly** recommend you read, at least, the first two of these articles, and if you don't have knowledge of MVVM, at least the 3rd.
 
 - [Doing python multiprocessing The Right Way](https://medium.com/@sampsa.riikonen/doing-python-multiprocessing-the-right-way-a54c1880e300)
 - [Use PyQt's QThread to Prevent Freezing GUIs](https://realpython.com/python-pyqt-qthread/)
