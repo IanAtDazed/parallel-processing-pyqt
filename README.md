@@ -20,7 +20,7 @@ I created this concept application to _hopefully_ help others and to garner cons
 - This solution demonstrates combining multithreading (with PyQt [QThread](https://doc.qt.io/qt-6/qthread.html)) with multiprocessing, via [RAY](https://www.ray.io/).
   - I chose RAY because I find it easier to work with, and the principles of how to communicate between multiprocessing and PyQt are similar, regardless of the library you use.
 - **Please note**: This is definitely **not** a demonstration of how to do multiprocessing - that's a big topic, out of the scope of this.
-- This solution also employs the [Model-View-ViewModel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) design pattern, because:
+- This solution also employs an *adaptation* of the [Model-View-ViewModel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) design pattern, because:
   1. I think it's good practice, and I'm trying to use it more.
   2. It actually lent itself, very nicely, to this particular problem.
 - Before you begin, I **strongly** suggest you take a look at the links in the [Reference Sources](#reference-sources) section.
