@@ -65,7 +65,7 @@ class ParallelSupervisor:
     def _quit(self, *args) -> None:
         """Quit processing."""
 
-        # Shows this is quitting in its separate process
+        # Demonstrates this is quitting in its separate process
         print("ParallelSupervisor is quitting...")
 
         self._is_running = False
@@ -75,7 +75,7 @@ class ParallelSupervisor:
 
         result = ray.get(self._data_generator.get_latest_data.remote())
 
-        # In the console, this shows it is running on a
+        # In the console, this demonstrates it is running on a
         # separate process to the GUI.
         print(result)
         
