@@ -6,7 +6,8 @@
 from PyQt6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QLabel, QPushButton
 
 from viewmodel.viewmodel import ViewModel
-from helpers.named_tuples import UpdateSignal
+from helpers.named_tuples import (
+    UpdateSignal, ProcessStartedSignal, ProcessQuitSignal)
 
 
 class View(QMainWindow):
@@ -51,11 +52,13 @@ class View(QMainWindow):
         """
 
         METHODS = {
-            UpdateSignal: self._update_result_label
+            UpdateSignal: self._update_result_label,
+            ProcessStartedSignal: self._decorate_has_started,
+            ProcessQuitSignal: self._decorate_has_quit
         }
 
         METHODS[type(signal)](signal)
-    
+
     def _update_result_label(self, update_signal: UpdateSignal) -> None:
         """Update the result label.
 
@@ -64,3 +67,13 @@ class View(QMainWindow):
         """
 
         self.result_label.setText(str(update_signal.value))
+    
+    def _decorate_has_started(self, *args) -> None:
+        """Decorate the view to indicate the process has started."""
+
+        self.start_button.setText('Stop')
+    
+    def _decorate_has_quit(self, *args) -> None:
+        """Decorate the view to indicate the process has quit."""
+
+        self.start_button.setEnabled(False)
