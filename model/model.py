@@ -2,16 +2,17 @@
 
 from PyQt6.QtCore import QThread
 
-from parallel.thread_worker import ThreadWorker
+from model.thread_worker import ThreadWorker
+
 
 class Model:
     """Model class."""
 
-    def __init__(self) -> None:
+    def __init__(self, callback_function: callable) -> None:
         """Initialize the model."""
 
         self._thread = QThread()
-        self._worker = ThreadWorker(self._callback_function)
+        self._worker = ThreadWorker(callback_function)
         self._worker.moveToThread(self._thread)
         self._thread.started.connect(self._worker.start)
 
@@ -19,7 +20,7 @@ class Model:
         """Run the model."""
 
         self._thread.start()
-    
+
     def stop(self) -> None:
         """Stop the model."""
 
@@ -27,8 +28,3 @@ class Model:
         # TODO: Need both?
         self._thread.quit()
         self._thread.wait()
-    
-    def _callback_function(self, value: any) -> None:
-        """Callback function."""
-
-        print(f'Callback function: {value}')
