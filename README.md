@@ -1,4 +1,4 @@
-# parallel-processing-pyqt: Parallel Processing From Pyqt6
+# parallel-processing-pyqt: Parallel Processing From PyQt6
 
 ## Introduction
 I created this concept application to *hopefully* help others and to garner constructive feedback as to how it might be improved.
