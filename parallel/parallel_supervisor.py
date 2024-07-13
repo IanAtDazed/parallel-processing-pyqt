@@ -65,6 +65,9 @@ class ParallelSupervisor:
     def _quit(self, *args) -> None:
         """Quit processing."""
 
+        # Shows this is quitting in its separate process
+        print("ParallelSupervisor is quitting...")
+
         self._is_running = False
 
     def _process_data(self) -> None:
