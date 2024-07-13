@@ -1,4 +1,4 @@
-"""Model module."""
+"""Module containing the *Model* class."""
 
 from PyQt6.QtCore import QThread
 
@@ -6,7 +6,14 @@ from model.thread_worker import ThreadWorker
 
 
 class Model:
-    """Model class."""
+    """The class the *view* interacts with (via the *viewmodel*)
+    
+    - Owns the thread that a thread worker will run on.
+    - Implements the *multithreading* that is required, so that
+      the *GUI thread* is not blocked.
+    - This class and *ThreadWorker* provide the bridge between the
+      GUI and the parallel processing module.
+    """
 
     def __init__(self, callback_function: callable) -> None:
         """Initialize the model."""
