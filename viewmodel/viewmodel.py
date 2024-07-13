@@ -11,7 +11,8 @@ if TYPE_CHECKING:
 
 from PyQt6.QtCore import QObject, pyqtSignal
 
-from helpers.named_tuples import UpdateSignal
+from helpers.named_tuples import (
+    UpdateSignal, ProcessStartedSignal, ProcessQuitSignal)
 from model.model import Model
 class ViewModel(QObject):
     """viewmodel class."""
@@ -29,8 +30,10 @@ class ViewModel(QObject):
 
         if checked:
             self._model.start()
+            self.signal.emit(ProcessStartedSignal())
         else:
             self._model.quit()
+            self.signal.emit(ProcessQuitSignal())
     
     def _callback_function(self, value: any) -> None:
         """Callback function."""
