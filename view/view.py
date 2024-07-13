@@ -4,6 +4,7 @@
 """
 
 from PyQt6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QLabel, QPushButton
+from PyQt6 import QtGui
 
 from viewmodel.viewmodel import ViewModel
 from helpers.view_instructions import (
@@ -19,6 +20,7 @@ class View(QMainWindow):
 
         self._viewmodel = ViewModel()
         self._layout_widgets()
+        self._center_screen()
         self._connect_signals_to_slots()
 
     def _layout_widgets(self) -> None:
@@ -37,6 +39,14 @@ class View(QMainWindow):
         widget.setLayout(outer_layout)
 
         self.setCentralWidget(widget)
+
+    def _center_screen(self):
+        """Center(ish) the main window."""
+
+        qr = self.frameGeometry()
+        cp = QtGui.QGuiApplication.primaryScreen().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
 
     def _connect_signals_to_slots(self) -> None:
         """Connect signals to slots."""
@@ -67,12 +77,12 @@ class View(QMainWindow):
         """
 
         self.result_label.setText(str(update_signal.value))
-    
+
     def _decorate_has_started(self, *args) -> None:
         """Decorate the view to indicate the process has started."""
 
         self.start_button.setText('Stop')
-    
+
     def _decorate_has_quit(self, *args) -> None:
         """Decorate the view to indicate the process has quit."""
 
