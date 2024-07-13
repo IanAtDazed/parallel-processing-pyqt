@@ -4,7 +4,7 @@ import ray
 from PyQt6.QtCore import QObject, pyqtSignal
 from ray.util.queue import Queue
 
-from helpers.process_instruction_named_tuples import QuitProcessing
+from helpers.process_instructions import QuitProcessing
 from parallel.parallel_supervisor import ParallelSupervisor
 
 

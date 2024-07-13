@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 import ray
 
-from helpers.process_instruction_named_tuples import QuitProcessing
+from helpers.process_instructions import QuitProcessing
 from parallel.data_generator import DataGenerator
 
 
