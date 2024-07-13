@@ -16,7 +16,7 @@ I created this concept application to *hopefully* help others and to garner cons
 ## This Solution
 - This solution demonstrates combining multithreading (with PyQt [QThread](https://doc.qt.io/qt-6/qthread.html)) with multiprocessing, via [RAY](https://www.ray.io/).
   - I chose RAY because I find it easier to work with, and the principles of how to communicate between multiprocessing and PyQt are the same regardless of the library you use.
-- Please note: This is definitely **not** a demonstration of how to do multiprocessing - that's a big topic, out of the scope of this.
+- **Please note**: This is definitely **not** a demonstration of how to do multiprocessing - that's a big topic, out of the scope of this.
 
 ## Reference Sources
 - [Doing python multiprocessing The Right Way](https://medium.com/@sampsa.riikonen/doing-python-multiprocessing-the-right-way-a54c1880e300)
