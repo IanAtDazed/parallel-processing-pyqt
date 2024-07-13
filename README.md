@@ -1,12 +1,9 @@
 # parallel-processing-pyqt: Parallel Processing From PyQt6
 
 ## Introduction
-
 I created this concept application to _hopefully_ help others and to garner constructive feedback as to how it might be improved.
 
 ## The Problem
-1
-
 - PyQt applications have a main thread of execution: **the GUI thread**.
 - Typically, anything called directly from PyQt (object method calls, scripts, etc.) is run on the GUI thread.
 - This results in everything running **synchronously**, one task at a time - which can be impractical for sophisticated applications, as long running tasks will cause the GUI to **freeze** (Not good!)
@@ -17,7 +14,6 @@ I created this concept application to _hopefully_ help others and to garner cons
   - multithreading and multiprocessing need to be combined.
 
 ## This Solution
-
 - This solution demonstrates combining multithreading (with PyQt [QThread](https://doc.qt.io/qt-6/qthread.html)) with multiprocessing, via [RAY](https://www.ray.io/).
   - I chose RAY because I find it easier to work with, and the principles of how to communicate between multiprocessing and PyQt are similar, regardless of the library you use.
 - **Please note**: This is definitely **not** a demonstration of how to do multiprocessing - that's a big topic, out of the scope of this.
@@ -35,6 +31,7 @@ I created this concept application to _hopefully_ help others and to garner cons
 - If you have any constructive feedback as to how the process, code, or documentation might be improved, I would love to hear from you.
 
 ## Reference Sources
+I **strongly ** recommend you read, at least, the first two of these articles, and at least the 3rd, if you don't have knowledge of MVVM.
 
 - [Doing python multiprocessing The Right Way](https://medium.com/@sampsa.riikonen/doing-python-multiprocessing-the-right-way-a54c1880e300)
 - [Use PyQt's QThread to Prevent Freezing GUIs](https://realpython.com/python-pyqt-qthread/)
