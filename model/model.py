@@ -16,12 +16,12 @@ class Model:
         self._worker.moveToThread(self._thread)
         self._thread.started.connect(self._worker.start)
 
-    def run(self) -> None:
+    def start(self) -> None:
         """Run the model."""
 
         self._thread.start()
 
-    def stop(self) -> None:
+    def quit(self) -> None:
         """Stop the model."""
 
         self._worker.quit()
