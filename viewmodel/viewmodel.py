@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 from PyQt6.QtCore import QObject, pyqtSignal
 
-from helpers.named_tuples import MessageSignal
+from helpers.named_tuples import UpdateSignal
 from model.model import Model
 class ViewModel(QObject):
     """viewmodel class."""
@@ -29,10 +29,6 @@ class ViewModel(QObject):
 
         # TODO: Make checkable
 
-        # TODO: TEMP
-        print('Start button clicked')
-        self.signal.emit(MessageSignal(value='Start button clicked'))
-
         self._model.run()
 
     def stop_button_clicked(self):
@@ -40,13 +36,9 @@ class ViewModel(QObject):
 
         # TODO: Make checkable
 
-        # TODO: TEMP
-        print('Stop button clicked')
-        self.signal.emit(MessageSignal(value='Stop button clicked'))
-
         self._model.stop()
     
     def _callback_function(self, value: any) -> None:
         """Callback function."""
 
-        self.signal.emit(MessageSignal(value=value))
+        self.signal.emit(UpdateSignal(value=value))
