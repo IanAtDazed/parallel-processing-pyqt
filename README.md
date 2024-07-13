@@ -26,7 +26,7 @@ I created this concept application to _hopefully_ help others and to garner cons
 ## Things to Consider
 - The multiprocessing that takes place in *this* application is nothing very useful, and wouldn't be worth the overhead. It simply generates numbers from 0..*.
 - If you are interested in adapting this to multiprocess with something a little more interesting, you could take a look at: [ray-streamer](https://github.com/IanAtDazed/ray-streamer) where we simulate streaming stock prices and processing them in parallel before returning them to something like this.
-- I you are doing anything critical with this, **please** fully test it first!
+- If you are doing anything critical with this, **please** fully test it first!
 
 ## Feedback
 - If you have any constructive feedback as to how the process, code, or documentation might be improved, I would love to hear from you.
