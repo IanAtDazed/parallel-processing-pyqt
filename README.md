@@ -20,7 +20,7 @@ I created this concept application to *hopefully* help others and to garner cons
 - This solution also employs the [Model-View-ViewModel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) design pattern, because:
   1. I think it's good practice, and I'm trying to use it more.
   2. It actually lent itself, very nicely, to this particular problem.
-- Before you begin, I **strongly** suggest you take a look at the links in the [Reference Sources](reference-sources) section.
+- Before you begin, I **strongly** suggest you take a look at the links in the [Reference Sources](#reference-sources) section.
   - These are where I got my inspiration from, and it makes it much easier to understand some of the design decisions.
 
 ## Reference Sources
