@@ -9,11 +9,13 @@ I created this concept application to *hopefully* help others and to garner cons
 - This results in everything running **synchronously**, one task at a time - which can be impractical for sophisticated applications.
 - PyQt does offer **multithreading**, which allows for subprograms to be run in thread(s) separate to the GUI thread.
   - This can often be all that is required, and if that is all you need, this application can still help you with that! Simply adjust the *thread_worker* module so it no longer instantiates *ParallelSupervisor*.
-  - This is a great primer: [Use PyQt's QThread to Prevent Freezing GUIs](https://realpython.com/python-pyqt-qthread/)
-- If you require **multiprocessing**, however, things get even more complicated.
+- If **multiprocessing** is required, however, things get even more complicated.
+  - multithreading and multiprocessing need to be combined.
 
 ## This Solution
-[TODO]
+- This solution demonstrates combining multithreading (with PyQt [QThread](https://doc.qt.io/qt-6/qthread.html)) with multiprocessing, via [RAY](https://www.ray.io/).
+- I chose RAY because I find it easier to work with, and the principles of how to communicate between multiprocessing and PyQt are the same regardless of the library you use.
+- Please note: This is definitely **not** a demonstration of how to do multiprocessing - that's a big topic, out of the scope of this.
 
 ## Reference Sources
 - [Doing python multiprocessing The Right Way](https://medium.com/@sampsa.riikonen/doing-python-multiprocessing-the-right-way-a54c1880e300)
