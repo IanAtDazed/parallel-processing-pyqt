@@ -6,7 +6,7 @@
 from PyQt6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QLabel, QPushButton
 
 from viewmodel.viewmodel import ViewModel
-from helpers.named_tuples import MessageSignal
+from helpers.named_tuples import UpdateSignal
 
 
 class View(QMainWindow):
@@ -45,12 +45,24 @@ class View(QMainWindow):
         self.stop_button.clicked.connect(self._viewmodel.stop_button_clicked)
         self._viewmodel.signal.connect(self._process_signal)
 
-    def _process_signal(self, signal: MessageSignal) -> None:
+    def _process_signal(self, signal: UpdateSignal) -> None:
         """Process a signal from the viewmodel.
 
         Args:
             signal: The signal to process.
         """
 
-        print('_process_signal')
-        print(signal)
+        METHODS = {
+            UpdateSignal: self._update_result_label
+        }
+
+        METHODS[type(signal)](signal)
+    
+    def _update_result_label(self, update_signal: UpdateSignal) -> None:
+        """Update the result label.
+
+        Args:
+            update_signal: The update signal.
+        """
+
+        self.result_label.setText(str(update_signal.value))

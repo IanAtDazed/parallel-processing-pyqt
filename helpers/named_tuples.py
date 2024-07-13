@@ -3,7 +3,7 @@
 from typing import NamedTuple
 
 
-class MessageSignal(NamedTuple):
+class UpdateSignal(NamedTuple):
     """Indicates a value is available for the view."""
 
-    value: any
+    value: int
