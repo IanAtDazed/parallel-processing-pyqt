@@ -4,6 +4,15 @@
 I created this concept application to *hopefully* help others and to garner constructive feedback as to how it might be improved.
 
 ## The Problem
+- PyQt applications have a main thread of execution: **the GUI thread**.
+- Typically, anything called directly from PyQt (object method calls, scripts, etc.) is run on the GUI thread.
+- This results in everything running **synchronously**, one task at a time - which is impractical for sophisticated applications.
+- PyQt does offer **multithreading** which allows for subprograms to be run in thread(s) separate to the GUI thread.
+  - This can often be all that is required.
+  - This is a great primer: [Use PyQt's QThread to Prevent Freezing GUIs](https://realpython.com/python-pyqt-qthread/)
+- If you require **multiprocessing**, however, it is more complicates still.
+
+## This Solution
 [TODO]
 
 ## Reference Sources
