@@ -1,4 +1,4 @@
-"""Modules containing NamedTuple classes."""
+"""Modules containing view instruction NamedTuple classes."""
 
 from typing import NamedTuple
 
