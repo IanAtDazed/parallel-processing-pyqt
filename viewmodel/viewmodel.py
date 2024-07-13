@@ -1,4 +1,7 @@
-"""Parallel viewmodel module."""
+"""Module containing the *viewmodel*.
+
+- Acts as a bridge between the *view* and *model*.
+"""
 
 from __future__ import annotations
 from typing import TYPE_CHECKING
