@@ -1,10 +1,10 @@
-"""Module containing the *ParallelWorker* class."""
+"""Module containing the *ThreadWorker* class."""
 
 import time # TODO
 
 from PyQt6.QtCore import QObject, pyqtSignal
 
-class ParallelWorker(QObject):
+class ThreadWorker(QObject):
     """Class to run the parallel processing."""
 
     result = pyqtSignal(object) # TODO: is object suitable?

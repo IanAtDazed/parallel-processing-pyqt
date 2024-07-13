@@ -2,7 +2,7 @@
 
 from PyQt6.QtCore import QThread
 
-from parallel.parallel_worker import ParallelWorker
+from parallel.thread_worker import ThreadWorker
 
 class Model:
     """Model class."""
@@ -11,7 +11,7 @@ class Model:
         """Initialize the model."""
 
         self._thread = QThread()
-        self._worker = ParallelWorker(self._callback_function)
+        self._worker = ThreadWorker(self._callback_function)
         self._worker.moveToThread(self._thread)
         self._thread.started.connect(self._worker.start)
 
