@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 from PyQt6.QtCore import QObject, pyqtSignal
 
-from helpers.named_tuples import (
+from helpers.view_instructions import (
     UpdateSignal, ProcessStartedSignal, ProcessQuitSignal)
 from model.model import Model
 class ViewModel(QObject):

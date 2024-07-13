@@ -6,7 +6,7 @@
 from PyQt6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QLabel, QPushButton
 
 from viewmodel.viewmodel import ViewModel
-from helpers.named_tuples import (
+from helpers.view_instructions import (
     UpdateSignal, ProcessStartedSignal, ProcessQuitSignal)
 
 
