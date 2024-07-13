@@ -24,19 +24,13 @@ class ViewModel(QObject):
 
         self._model = Model(self._callback_function)
 
-    def start_button_clicked(self):
+    def start_button_clicked(self, checked: bool) -> None:
         """Start button clicked slot."""
 
-        # TODO: Make checkable
-
-        self._model.run()
-
-    def stop_button_clicked(self):
-        """Stop button clicked slot."""
-
-        # TODO: Make checkable
-
-        self._model.stop()
+        if checked:
+            self._model.start()
+        else:
+            self._model.quit()
     
     def _callback_function(self, value: any) -> None:
         """Callback function."""
