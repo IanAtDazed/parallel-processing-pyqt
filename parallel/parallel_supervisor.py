@@ -1,7 +1,8 @@
-"""Module containing the parallel processing code.
+"""Module containing the *ParallelSupervisor* class.
 
 - Here, we are using [Ray](https://www.ray.io/)
 - This could be Python [multiprocessing](https://docs.python.org/3/library/multiprocessing.html)
+- Or something else...
 """
 
 from __future__ import annotations
@@ -19,7 +20,7 @@ from parallel.data_generator import DataGenerator
 
 @ray.remote
 class ParallelSupervisor:
-    """Class to run the parallel processing."""
+    """Class to demonstrate some parallel processing."""
 
     def __init__(self, instruction_queue: Queue, result_queue: Queue) -> None:
         """Initialize the class."""
@@ -39,7 +40,14 @@ class ParallelSupervisor:
             self._process_data()
 
     def _process_latest_instructions(self) -> None:
-        """Process any latest instructions."""
+        """Process any latest instructions.
+        
+        **NOTE:**
+        - This is designed to process *all* instructions in the queue
+          before continuing.
+        - This will be useful if multiple instruction types are ever added
+          to the functionality.
+        """
 
         while not self._instruction_queue.empty():
             self._process_instruction(
@@ -49,7 +57,7 @@ class ParallelSupervisor:
         """Process an instruction.
 
         Args:
-            instruction (any): The instruction to process.
+            instruction: The instruction to process.
         
         **Note:**
         - This allows for more instruction to easily be added.
@@ -65,7 +73,7 @@ class ParallelSupervisor:
     def _quit(self, *args) -> None:
         """Quit processing."""
 
-        # Demonstrates this is quitting in its separate process
+        # Demonstrates, in the console, this is quitting in its separate process
         print("ParallelSupervisor is quitting...")
 
         self._is_running = False
@@ -75,7 +83,7 @@ class ParallelSupervisor:
 
         result = ray.get(self._data_generator.get_latest_data.remote())
 
-        # In the console, this demonstrates it is running on a
+        # Demonstrates, in the console, it is running on a
         # separate process to the GUI.
         print(result)
         
