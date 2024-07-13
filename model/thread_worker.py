@@ -51,7 +51,5 @@ class ThreadWorker(QObject):
     def quit(self) -> None:
         """Quit the parallel processing."""
 
-        print('ThreadWorker quit')  # TODO
-
         self._instruction_queue.put(QuitProcessing())
         self._is_running = False
