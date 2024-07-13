@@ -1,7 +1,4 @@
-"""Module containing the *viewmodel*.
-
-- Acts as a bridge between the *view* and *model*.
-"""
+"""Module containing the *ViewModel* class."""
 
 from __future__ import annotations
 from typing import TYPE_CHECKING
@@ -15,7 +12,7 @@ from helpers.view_instructions import (
     UpdateSignal, ProcessStartedSignal, ProcessQuitSignal)
 from model.model import Model
 class ViewModel(QObject):
-    """viewmodel class."""
+    """A layer of separation between the *view* and *model*."""
 
     signal = pyqtSignal(tuple)
 
@@ -23,7 +20,7 @@ class ViewModel(QObject):
         
         super().__init__()
 
-        self._model = Model(self._callback_function)
+        self._model = Model(self._update_view)
 
     def start_button_clicked(self, checked: bool) -> None:
         """Start button clicked slot."""
@@ -35,7 +32,7 @@ class ViewModel(QObject):
             self._model.quit()
             self.signal.emit(ProcessQuitSignal())
     
-    def _callback_function(self, value: any) -> None:
-        """Callback function."""
+    def _update_view(self, value: int) -> None:
+        """The callback function to update the view."""
 
         self.signal.emit(UpdateSignal(value=value))
