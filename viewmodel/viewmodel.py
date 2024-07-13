@@ -49,4 +49,4 @@ class ViewModel(QObject):
     def _callback_function(self, value: any) -> None:
         """Callback function."""
 
-        print(f'Callback function: {value}')
+        self.signal.emit(MessageSignal(value=value))
