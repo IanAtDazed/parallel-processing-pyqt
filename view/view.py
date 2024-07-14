@@ -3,7 +3,7 @@
 - A *QMainWindow*
 """
 
-from PyQt6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QLabel, QPushButton
+from PyQt6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QLabel, QPushButton, QMessageBox
 from PyQt6 import QtGui
 
 from viewmodel.viewmodel import ViewModel
@@ -88,3 +88,10 @@ class View(QMainWindow):
         """Decorate the view to indicate the process has quit."""
 
         self.start_button.setEnabled(False)
+    
+    def closeEvent(self, event):
+        """Handle the close event."""
+
+        if self._viewmodel._is_processing:
+            QMessageBox.critical(self, 'Still Processing!', 'Please stop the processing first!')
+            event.ignore()
