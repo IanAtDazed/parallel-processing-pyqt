@@ -21,6 +21,7 @@ class ViewModel(QObject):
         super().__init__()
 
         self._model = Model(self._update_view)
+        self._is_processing = False
 
     def start_button_clicked(self, checked: bool) -> None:
         """Start button clicked slot."""
@@ -28,9 +29,11 @@ class ViewModel(QObject):
         if checked:
             self._model.start()
             self.signal.emit(ProcessStartedSignal())
+            self._is_processing = True
         else:
             self._model.quit()
             self.signal.emit(ProcessQuitSignal())
+            self._is_processing = False
     
     def _update_view(self, value: int) -> None:
         """The callback function to update the view."""
