@@ -3,6 +3,8 @@
 ## Introduction
 I created this concept application to _hopefully_ help others and to garner constructive feedback as to how it might be improved.
 
+**Please Note:** I have used a more complex version of this code in an application that streams and analyzes intraday stock market data from the Schwab Developer API, so I can vouch that the general principles work in *real life*. (However, please thoroughly **TEST** whatever you end up doing with it!)
+
 ## The Problem
 - PyQt applications have a main thread of execution: **the GUI thread**.
 - Typically, anything called directly from PyQt (object method calls, scripts, etc.) is run on the GUI thread.
